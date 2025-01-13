@@ -17,7 +17,7 @@ def set_seed(seed):
         torch.cuda.manual_seed_all(seed)
 
 # Al inicio de cada entrenamiento
-seed = 45  # Cambia este número en cada experimento
+seed = 89  # Cambia este número en cada experimento
 set_seed(seed)
 
 torch.set_num_threads(5)
@@ -31,7 +31,7 @@ new_agent = MyAgent(input_size, action_size, learning_rate=1e-4)
 
 
 # Parámetros de entrenamiento
-num_episodes = 394
+num_episodes = 100
 env.start()
 for episode in range(num_episodes):
     #state = env.reset()
@@ -53,9 +53,9 @@ for episode in range(num_episodes):
     new_agent.finish_episode()
     print(f"Episodio {episode+1}/{num_episodes}, Recompensa total: {episode_reward:.2f}")
 
-os.mkdir("policy_network_008")
+os.mkdir("policy_network_017")
 for i in range(new_agent.N):
     name = "policy_network_" + str(i).zfill(4) + ".pth"
-    path = "policy_network_008/" + name
+    path = "policy_network_017/" + name
     torch.save(new_agent.policy_network[i].state_dict(), path)
 print('Modelo guardado en policy_network')

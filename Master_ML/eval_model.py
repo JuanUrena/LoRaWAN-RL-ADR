@@ -13,7 +13,7 @@ policy_network = {}
 for i in range(env.N):
     policy_network[i] = MyNeuralNetwork(input_size, action_size)
     name = "policy_network_" + str(i).zfill(4) + ".pth"
-    path = "policy_network_008/" + name
+    path = "policy_network_017/" + name
     policy_network[i].load_state_dict(torch.load(path))
     policy_network[i].eval()
 
